@@ -2,32 +2,39 @@ html, body {
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
 }
-
-.container_outer {
+.container-fluid{
   min-height: 100vh;
   /*background-color: #2A2C2B;*/
   background-color: #2ecc71;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 }
 
-.navbar-inverse {
-  background-color: transparent;
+.question-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.container_left {
-  flex: 1;
-}
-.container_inner {
+
+
+.question-inner {
   color: #eee;
 }
 
-.container_inner h1 {
-  text-transform: capitalize;
+.question-inner h1 {
+  /*text-transform: capitalize;*/
+  font-size: 4em;
+  /*text-align: center;*/
 }
 
-.container_inner input {
+.question-inner h2 {
+  color: #27ae60;
+}
+
+.question-inner p {
+  color: #27ae60;
+}
+
+.question-inner input {
   background-color: transparent;
   color: #eee;
   border-bottom-color: #27ae60;
@@ -36,24 +43,24 @@ html, body {
   border-right-color: transparent;
   box-shadow: none;
   height: 100px;
-  font-size: 2em;
+  font-size: 3em;
   text-transform: uppercase;
 }
-.container_inner input::-webkit-input-placeholder { /* WebKit browsers */
+.question-inner input::-webkit-input-placeholder { /* WebKit browsers */
     text-transform: none;
     color: #27ae60;
 }
-.container_inner input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+.question-inner input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     text-transform: none;
 }
- .container_inner input::-moz-placeholder { /* Mozilla Firefox 19+ */
+ .question-inner input::-moz-placeholder { /* Mozilla Firefox 19+ */
     text-transform: none;
 }
-.container_inner input:-ms-input-placeholder { /* Internet Explorer 10+ */
+.question-inner input:-ms-input-placeholder { /* Internet Explorer 10+ */
     text-transform: none;
 }
 
-.container_inner input[type="text"]:focus {
+.question-inner input[type="text"]:focus {
   border-bottom-color: #27ae60;
   border-top-color: transparent;
   border-left-color: transparent;
@@ -61,16 +68,59 @@ html, body {
   box-shadow: none;
 }
 
-.container_inner .btn {
+.question-inner .btn {
   border-radius: 1px;
   width: 100%;
 }
 
-.container_inner .btn-info {
+.question-inner .btn-info {
   background-color: #27ae60;
   border-color: #27ae60;
 }
 
-.container_right {
-  flex: 1;
+/* TEST */
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  width: 100%;
+}
+
+.react-autosuggest__input:focus {
+  outline: none;
+}
+
+.react-autosuggest__container--open .react-autosuggest__input {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__container--open .react-autosuggest__suggestions-container {
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border: 1px solid #27ae60;
+  background-color: #27ae60;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--focused {
+  background-color: #2ecc71;
 }

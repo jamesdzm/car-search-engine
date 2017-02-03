@@ -2,12 +2,15 @@ import React from 'react';
 import Question from './Question';
 
 class App extends React.Component {
+
   render() {
     return (
-      <div className="">
-        <div className="container_outer">
-          <Question />
-        </div>
+      <div className="container-fluid">
+          <div className="row">
+            <div className="question-container">
+              <Question />
+            </div>
+          </div>
       </div>
     )
   }

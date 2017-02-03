@@ -1,9 +1,14 @@
 import React from 'react';
+import Search from './Search';
 
 class SearchBar extends React.Component {
+
   render(){
     return (
-      <input className="form-control" placeholder="Start Typing To See Suggestions*" type="text" />
+      <div>
+        {/*<input className="form-control" placeholder="Start typing the make here" type="text" />*/}
+        <Search />
+      </div>
     )
   }
 };
