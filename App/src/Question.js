@@ -12,6 +12,8 @@ class Question extends React.Component {
         <SearchBar />
         <br /><br /><br />
         <h2 className="text-center">1 / 6</h2>
+        <br />
+        <p className="text-center">Press enter to continue</p>
       </div>
     )
   }

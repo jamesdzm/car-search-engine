@@ -6,32 +6,26 @@ var app = express();
 
 app.get('/scrape', function(req, res){
   // All the web scraping magic will happen here
-  url = "http://www.imdb.com/title/tt1229340/";
+  url = "http://www.autotrader.co.uk/car-search?make=AUDI&model=A3&postcode=rg53ha&radius=1500&onesearchad=Used&onesearchad=Nearly%20New&onesearchad=New&search-target=usedcars&is-quick-search=true&quicksearch=true";
 
   request(url, function(error, response, html){
     if(!error){
       var $ = cheerio.load(html);
 
-      var title, release, rating;
-      var json = { title: "", release: "", rating: "" };
+      var results;
+      var json = { Results: "" };
 
       // We use the unique header class as a starting point
-      $('.title_wrapper').filter(function(){
+      $('search-form__header-content').filter(function(){
         // Store data we filter into a variable
         var data = $(this);
 
-        title = data.children().first().text();
-        release = data.children().first().children().text();
+        results = data.children().first().text();
+        // release = data.children().first().children().text();
 
-        json.title = title;
-        json.release = release;
+        json.results = results;
       })
 
-      $('.star-box-giga-star').filter(function(){
-        var data = $(this);
-        rating = data.text();
-        json.rating = rating;
-      })
     }
 
     fs.writeFile('output.json', JSON.stringify(json, null, 4), function(err){

@@ -1,5 +1,6 @@
 import React from 'react';
 import Question from './Question';
+import QuestionAge from './QuestionAge';
 
 class App extends React.Component {
 
@@ -9,6 +10,7 @@ class App extends React.Component {
           <div className="row">
             <div className="question-container">
               <Question />
+              {/* <QuestionAge /> */}
             </div>
           </div>
       </div>
