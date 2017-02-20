@@ -1,18 +1,12 @@
 import React from 'react';
-import Question from './Question';
-import QuestionAge from './QuestionAge';
+
+import QuestionOne from './components/question-one';
 
 class App extends React.Component {
-
   render() {
     return (
       <div className="container-fluid">
-          <div className="row">
-            <div className="question-container">
-              <Question />
-              {/* <QuestionAge /> */}
-            </div>
-          </div>
+        <QuestionOne />
       </div>
     )
   }

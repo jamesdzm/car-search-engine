@@ -4,13 +4,13 @@ var webpack = require('webpack');
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: './',
+    path: path.resolve('./'),
     filename: 'index.js'
   },
   module: {
     loaders: [
       {
-        test: /.jsx?$/,
+        test: /.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
