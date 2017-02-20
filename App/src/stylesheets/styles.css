@@ -15,16 +15,10 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
-
 .question-inner {
   color: #eee;
 }
 
-.question-inner h1 {
-  /*text-transform: capitalize;*/
-  font-size: 4em;
-  /*text-align: center;*/
-}
 
 .question-inner h2 {
   color: #27ae60;
@@ -43,8 +37,8 @@ html, body {
   border-right-color: transparent;
   box-shadow: none;
   height: 100px;
-  font-size: 3em;
   text-transform: uppercase;
+  font-size: 2em;
 }
 .question-inner input::-webkit-input-placeholder { /* WebKit browsers */
     text-transform: none;
@@ -52,12 +46,15 @@ html, body {
 }
 .question-inner input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     text-transform: none;
+    color: #27ae60;
 }
  .question-inner input::-moz-placeholder { /* Mozilla Firefox 19+ */
     text-transform: none;
+    color: #27ae60;
 }
 .question-inner input:-ms-input-placeholder { /* Internet Explorer 10+ */
     text-transform: none;
+    color: #27ae60;
 }
 
 .question-inner input[type="text"]:focus {

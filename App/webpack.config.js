@@ -20,7 +20,6 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: "./src",
-    hot: true
+    contentBase: "./src"
   },
 };

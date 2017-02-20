@@ -1,7 +1,7 @@
 import React from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
-class SearchBar extends React.Component {
-
+class QuestionOneQuestion extends React.Component {
   constructor(props){
     super(props);
 
@@ -15,6 +15,19 @@ class SearchBar extends React.Component {
     this.setState({car: e.target.value });
   }
 
+  render(){
+    return(
+      <div>
+        <label>What car do you want?</label>
+        <input className="form-control" value={this.state.car} onChange={this.handleChange} placeholder="Start typing make and model" />
+        <button disabled={this.state.car.toLowerCase() != "AUDI".toLowerCase()} className="btn btn-info">Next</button>
+      </div>
+    )
+  }
+}
+
+class SearchBar extends React.Component {
+
   handleSubmit(e){
     e.preventDefault();
     // setButtonState to true - button uses React Router to move onto next form
@@ -24,10 +37,8 @@ class SearchBar extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input className="form-control" value={this.state.car} onChange={this.handleChange} placeholder="Start typing make and model" />
-          <button type="submit" disabled={this.state.car.toLowerCase() != "AUDI".toLowerCase()} className="btn btn-info">Next</button>
+          <QuestionOneQuestion />
         </form>
-        <p>Your selection so far: {this.state.car}</p>
       </div>
     )
   }
