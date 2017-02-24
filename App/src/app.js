@@ -21,7 +21,10 @@ class App extends React.Component {
   searchCar(url){
     fetch(url)
       .then((response)=>{
-        console.log(response);
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json.results);
       })
       .catch((error)=>{
         console.log('Whoops');
