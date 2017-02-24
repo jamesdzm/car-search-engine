@@ -14,11 +14,14 @@ class Questions extends React.Component {
     this.setState({
       updateCar: {
         make: this.refs.make.value,
+        model: this.refs.model.value
       }
     },
     function() {
       this.props.changeCar(this.state.updateCar);
     });
+    this.refs.make.value = '';
+    this.refs.model.value = '';
     e.preventDefault();
   }
 
@@ -29,6 +32,8 @@ class Questions extends React.Component {
           <form className="form" onSubmit={this.handleSubmit.bind(this)}>
             <div className="form-group">
               <input type="text" className="form-control" ref="make" placeholder="Make" autoFocus={true} />
+              <input type="text" className="form-control" ref="model" placeholder="Model" />
+              <button type="submit" className="btn btn-info">Submit</button>
             </div>
           </form>
         </div>

@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['whatwg-fetch', './src/main.js'],
   output: {
     path: path.resolve('./'),
     filename: 'index.js'
@@ -20,6 +20,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: "./src"
+    contentBase: "src",
+    headers: { "Access-Control-Allow-Origin": "*" },
   },
 };

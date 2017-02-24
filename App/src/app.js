@@ -1,4 +1,6 @@
 import React from 'react';
+import 'whatwg-fetch';
+
 import Questions from './Questions';
 
 class App extends React.Component {
@@ -6,41 +8,55 @@ class App extends React.Component {
     super();
 
     this.state = {
-      car: []
+      postCode: "",
+      make: "",
+      model: "",
+      startYear: "",
+      endYear: "",
+      colour: ""
     }
+
   }
 
-  componentWillMount(){
-    this.setState({
-      car: [
-        {
-          postCode: "RH15 8HU",
-          make: "audi",
-          model: "a1",
-          startYear: "2010",
-          endYear: "2017",
-          colour: "white"
-        }
-      ]
-    })
+  searchCar(url){
+    fetch(url)
+      .then((response)=>{
+        console.log(response);
+      })
+      .catch((error)=>{
+        console.log('Whoops');
+      })
+  }
+
+  // eBay Search API
+  searchEbay(){
+    var url  = "http://svcs.ebay.com/services/search/FindingService/v1";
+        url += "?OPERATION-NAME=findItemsByKeywords";
+        url += "&SERVICE-VERSION=1.0.0";
+        url += "&SECURITY-APPNAME=JamesDzi-carsearc-PRD-a2442a3e5-c16d133d";
+        url += "&GLOBAL-ID=EBAY-GB";
+        url += "&RESPONSE-DATA-FORMAT=JSON";
+        url += "&REST-PAYLOAD";
+        url += "&keywords=" + this.state.make + "%20" + this.state.model;
+    this.searchCar(url);
+  }
+
+  // Autotrader Search API
+  searchAutotrader(){
+    var url  = "http://localhost:8081/autotraderAPI";
+        url += "?make=" + this.state.make;
+        url += "&model=" + this.state.model;
+    this.searchCar(url);
   }
 
   handleChangeCar(newCar){
-    this.setState({
-      car: [
-        {
-          make: newCar.make
-        }
-      ]
-    }, function(){
-      console.log(this.state.car);
-    })
+    this.setState({ make: newCar.make, model: newCar.model }, () => { this.searchAutotrader() })
   }
 
   render() {
     return (
       <div className="container-fluid">
-        <Questions car={this.state.car} changeCar={this.handleChangeCar.bind(this)} />
+        <Questions changeCar={this.handleChangeCar.bind(this)} />
       </div>
     )
   }
