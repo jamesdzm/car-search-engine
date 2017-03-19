@@ -9,6 +9,7 @@ class AppForm extends React.Component {
     super();
     this.state = { postcode: "", make: "", model: "", startYear: "", endYear: "", colour: "", results: "" }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClearForm = this.handleClearForm.bind(this);
   }
 
   handleSubmit(e){
@@ -24,13 +25,19 @@ class AppForm extends React.Component {
       function() {
         this.searchAutotrader();
       });
-      this.refs.make.value = '';
-      this.refs.model.value = '';
-      this.refs.color.value = '';
-      this.refs.startYear.value = '';
-      this.refs.endYear.value = '';
-      this.refs.postcode.value = '';
+
       e.preventDefault();
+  }
+
+  handleClearForm(e){
+    this.refs.make.value = '';
+    this.refs.model.value = '';
+    this.refs.color.value = '';
+    this.refs.startYear.value = '';
+    this.refs.endYear.value = '';
+    this.refs.postcode.value = '';
+
+    e.preventDefault();
   }
 
   render(){
@@ -58,7 +65,7 @@ class AppForm extends React.Component {
                 <input type="text" className="form-control" ref="postcode" placeholder="Postcode" />
               </div>
               <div className="col-md-12">
-                <Link to="/results"><button type="submit" className="btn btn-info">Submit</button></Link>
+                <Link to="/results"><button type="submit" className="btn btn-info" clearForm={this.handleClearForm}>Submit</button></Link>
               </div>
             </div>
           </form>

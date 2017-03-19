@@ -7,7 +7,13 @@ class AppSearchAutotrader extends React.Component {
     this.state = { results: '' };
   }
 
-  // Use Fetch to ajax the json from REST API
+  componentWillMount(){
+    var url  = "http://localhost:8081/autotraderAPI";
+        url += "?make=" + this.props.make;
+        url += "&model=" + this.props.model;
+    this.searchCar(url);
+  }
+
   searchCar(url){
     fetch(url)
       .then((response)=>{
@@ -20,14 +26,6 @@ class AppSearchAutotrader extends React.Component {
       .catch((error)=>{
         console.log('Whoops');
       })
-  }
-
-  // Autotrader Search API
-  searchAutotrader(){
-    var url  = "http://localhost:8081/autotraderAPI";
-        url += "?make=" + this.state.make;
-        url += "&model=" + this.state.model;
-    this.searchCar(url);
   }
 
   render() {
