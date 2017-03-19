@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import AppForm from './components/app-form';
+import AppResults from './components/app-results';
 
 const AppContainer = (props) => {
   return(
@@ -25,6 +26,7 @@ class App extends React.Component {
       <Router history={browserHistory}>
         <Route path='/' component={AppContainer}>
           <IndexRoute component={AppForm} />
+          <Route path='results' component={AppResults} />
         </Route>
       </Router>
     )
@@ -33,6 +35,7 @@ class App extends React.Component {
 
 export default App;
 
+// Render App to the DOM
 ReactDOM.render(
   <App/>,
   document.getElementById("app")
